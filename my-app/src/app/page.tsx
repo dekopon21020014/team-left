@@ -157,14 +157,23 @@ export default function Home() {
 
   return (
     <div className="container mx-auto p-4 relative">
-      {/* 総計を見るボタン */}
-      <button
-        onClick={() => router.push("/total")} // "/total" に遷移
-        className="absolute top-0 right-0 bg-green-500 text-white py-2 px-4 rounded-md m-4"
-      >
-        総計を見る
-      </button>
-
+      {/* ボタンのコンテナ */}
+      <div className="absolute top-0 right-0 m-4 flex space-x-2">
+        {/* 総計を見るボタン */}
+        <button
+          onClick={() => router.push("/total")}
+          className="bg-green-500 text-white py-2 px-4 rounded-md"
+        >
+          総計を見る
+        </button>
+        {/* 全体の推移を見るボタン */}
+        <button
+          onClick={() => router.push("/transition")}
+          className="bg-blue-500 text-white py-2 px-4 rounded-md"
+        >
+          全体の推移を見る
+        </button>
+      </div>
       <h1 className="text-2xl font-bold mb-4">
         10秒ごとに更新されるスコアデータグラフ (楽しい vs 疲れた)
       </h1>

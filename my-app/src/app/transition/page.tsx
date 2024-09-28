@@ -108,7 +108,8 @@ export default function Transition() {
             {
                 label: "スコアの和",
                 data: sumData,
-                borderColor: "rgb(0, 0, 0)", // 赤色
+                borderColor: "rgb(0, 150, 200)", // 明るい青色
+                backgroundColor: "rgba(0, 150, 200, 0.1)", // 透明度を持つ背景色
                 tension: 0.1,
                 spanGaps: true, // null値の部分はスキップ
             },
@@ -149,13 +150,23 @@ export default function Transition() {
 
     return (
         <div className="container mx-auto p-4 relative">
-            {/* 総計を見るボタン */}
-            <button
-                onClick={() => router.push("/total")} // "/total" に遷移
-                className="absolute top-0 right-0 bg-green-500 text-white py-2 px-4 rounded-md m-4"
-            >
-                総計を見る
-            </button>
+            {/* ボタンのコンテナ */}
+            <div className="absolute top-0 right-0 m-4 flex space-x-2">
+                {/* リアルタイムに見るボタン */}
+                <button
+                    onClick={() => router.push("/")}
+                    className="bg-green-500 text-white py-2 px-4 rounded-md"
+                >
+                    リアルタイムで見る
+                </button>
+                {/* 総計を見るボタン */}
+                <button
+                    onClick={() => router.push("/total")}
+                    className="bg-blue-500 text-white py-2 px-4 rounded-md"
+                >
+                    総計を見る
+                </button>
+            </div>
 
             <h1 className="text-2xl font-bold mb-4">
                 10秒ごとに更新されるスコアデータグラフ (楽しい vs 疲れた)
